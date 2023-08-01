@@ -1,9 +1,11 @@
+// Pair Programming with Eric, Anthony, Kye, Daisy, Rich,Viviana,Christian
+
 class Ninja{
-    constructor(name="Anon Ninja"){
+    constructor(name="Anon Ninja",health=90,speed=3,strength=3){
         this.name =name
-        this.health = 90
-        this.speed = 3
-        this.strength = 3
+        this.health = health
+        this.speed = speed
+        this.strength = strength
     }
 
     sayName(){
@@ -12,10 +14,7 @@ class Ninja{
     }
 
     showStats(){
-        console.log(`Name: ${this.name}`)
-        console.log(`Strength: ${this.strength}`)
-        console.log(`Speed: ${this.speed}`)
-        console.log(`Health: ${this.health}`)
+        console.table(this)
         return this;
     }
 
@@ -30,3 +29,26 @@ class Ninja{
 const ninja1 = new Ninja("Hyabusa");
 ninja1.sayName();
 ninja1.showStats();
+
+
+class Sensei extends Ninja{
+    constructor(name="Default"){
+        super(name,200,10,10)
+        this.wisdom = 10
+    }
+
+    showStats(){
+        super.showStats()
+    }
+
+    speakWisdom(){
+        super.drinkSake()
+        console.log("Set your heart ablaze")
+    }
+}
+
+const newSensei = new Sensei()
+
+newSensei.showStats()
+newSensei.speakWisdom()
+newSensei.showStats()
